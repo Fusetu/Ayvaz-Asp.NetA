@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AYVAZ</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar">
+            <asp:Image class="navbar-logo" ID="Image1" runat="server" Height="40px" ImageUrl="~/image/ayvaz_logo.png" Width="250px" />
+            <table class="navbar-table">
+                <tr>
+                    <td><asp:LinkButton OnClick="btn_add_Click1" ID="btn_add" runat="server">Veri Ekle</asp:LinkButton></td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="container-popup">
+            <div id="add" class="modal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Ekle</h2>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblmsg" Text="" runat="server" />
+                            <label>Login Name:</label>
+                            <asp:TextBox ID="txtlogname" CssClass="form-control" placeholder="Login Name" runat="server" />
+                            <label>Password:</label>
+                            <asp:TextBox ID="txtpass" CssClass="form-control" placeholder="Password" runat="server" />
+                            <label>First Name:</label>
+                            <asp:TextBox ID="txtfname" CssClass="form-control" placeholder="First Name" runat="server" />
+                            <label>Last Name:</label>
+                            <asp:TextBox ID="txtlname" CssClass="form-control" placeholder="Last Name" runat="server" />
+                            <label>Authority Level: (1 - 2)</label>
+                            <asp:TextBox ID="txtauth" CssClass="form-control" placeholder="Authority Level" runat="server" />
+                            <label>Birthday:</label>
+                            <asp:TextBox ID="txtbday" textmode="Date" CssClass="form-control" placeholder="Birthday" runat="server" />
+                            <label>Salary:</label>
+                            <asp:TextBox ID="txtsalary" CssClass="form-control" placeholder="Salary" runat="server" />
+                            <asp:HiddenField ID="hdid" runat="server" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <asp:Button ID="btnAdd" CssClass="btn btn-primary" OnClick="btnAdd_Click1" Text="Add" runat="server" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
